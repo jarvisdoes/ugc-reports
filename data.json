@@ -1,0 +1,129 @@
+{
+  "date": "2026-02-16",
+  "day": "Monday",
+  "allDatesToday": true,
+  "updatedAt": "2026-02-16 09:10 GST",
+  "rootCause": "Pipeline trusted stale state file (ugc-state.json) without date verification. Content from prior days was marked as 'generated' and scheduling was attempted on old content. Fixed with bidirectional product name matching, proper render waits, and date verification safeguards.",
+  "accounts": [
+    {
+      "account": "demo1",
+      "type": "UGC",
+      "product": "Lumavita",
+      "generated": true,
+      "generatedAt": "08:38 GST",
+      "scheduled": true,
+      "scheduledFor": "Feb 17 @ 4:45 PM",
+      "uid": "WKRH",
+      "screenshotPosts": "screenshots/demo1.png",
+      "screenshotVideos": "screenshots/demo1-videos.png"
+    },
+    {
+      "account": "demo3",
+      "type": "AI Video",
+      "product": "Taite Online",
+      "generated": true,
+      "generatedAt": "08:38 GST",
+      "scheduled": true,
+      "scheduledFor": "Feb 17 @ 9:00 AM",
+      "uid": "UVQJU",
+      "screenshotPosts": "screenshots/demo3.png",
+      "screenshotVideos": "screenshots/demo3-videos.png"
+    },
+    {
+      "account": "demo6",
+      "type": "Slideshow",
+      "product": "Azura Global",
+      "generated": true,
+      "generatedAt": "08:49 GST",
+      "scheduled": true,
+      "scheduledFor": "Feb 17 @ 8:15 AM",
+      "uid": null,
+      "screenshotPosts": "screenshots/demo6.png",
+      "screenshotVideos": "screenshots/demo6-videos.png"
+    },
+    {
+      "account": "demo7",
+      "type": "Image",
+      "product": "Nexora",
+      "generated": true,
+      "generatedAt": "08:39 GST",
+      "scheduled": true,
+      "scheduledFor": "Feb 17 @ 4:00 PM",
+      "uid": null,
+      "screenshotPosts": "screenshots/demo7.png",
+      "screenshotVideos": "screenshots/demo7-videos.png"
+    },
+    {
+      "account": "demo8",
+      "type": "AI Video",
+      "product": "Kulbit Media",
+      "generated": true,
+      "generatedAt": "08:52 GST",
+      "scheduled": true,
+      "scheduledFor": "Feb 17 @ 12:30 AM",
+      "uid": "VCLML",
+      "screenshotPosts": "screenshots/demo8.png",
+      "screenshotVideos": "screenshots/demo8-videos.png"
+    },
+    {
+      "account": "demo9",
+      "type": "Image",
+      "product": "Lunara Int",
+      "generated": true,
+      "generatedAt": "08:52 GST",
+      "scheduled": true,
+      "scheduledFor": "Feb 17 @ 2:00 PM",
+      "uid": null,
+      "screenshotPosts": "screenshots/demo9.png",
+      "screenshotVideos": "screenshots/demo9-videos.png"
+    },
+    {
+      "account": "demo12",
+      "type": "Image",
+      "product": "Velaro",
+      "generated": true,
+      "generatedAt": "08:41 GST",
+      "scheduled": true,
+      "scheduledFor": "Feb 17 @ 9:15 PM",
+      "uid": null,
+      "screenshotPosts": "screenshots/demo12.png",
+      "screenshotVideos": "screenshots/demo12-videos.png"
+    },
+    {
+      "account": "demo14",
+      "type": "Slideshow",
+      "product": "NovaBridge",
+      "generated": true,
+      "generatedAt": "Pre-existing (today)",
+      "scheduled": true,
+      "scheduledFor": "Feb 17 @ 6:15 PM",
+      "uid": "JHWG",
+      "screenshotPosts": "screenshots/demo14.png",
+      "screenshotVideos": "screenshots/demo14-videos.png"
+    },
+    {
+      "account": "demo15",
+      "type": "AI Video",
+      "product": "Orbitly",
+      "generated": true,
+      "generatedAt": "08:41 GST",
+      "scheduled": true,
+      "scheduledFor": "Feb 17 @ 10:00 AM",
+      "uid": "2PG44",
+      "screenshotPosts": "screenshots/demo15.png",
+      "screenshotVideos": "screenshots/demo15-videos.png"
+    },
+    {
+      "account": "demo18",
+      "type": "UGC",
+      "product": "Paper Pixel",
+      "generated": true,
+      "generatedAt": "08:43 GST",
+      "scheduled": true,
+      "scheduledFor": "Feb 17 @ 7:00 PM",
+      "uid": "9KN34",
+      "screenshotPosts": "screenshots/demo18.png",
+      "screenshotVideos": "screenshots/demo18-videos.png"
+    }
+  ]
+}
