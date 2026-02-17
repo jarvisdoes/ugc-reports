@@ -1,0 +1,51 @@
+{
+  "date": "2026-02-17",
+  "day": "Tuesday",
+  "trigger": "Manual at 02:28 Dubai (02:00 cron blocked by stale process)",
+  "summary": {"total": 10, "success": 6, "failed": 1, "skipped": 3},
+  "accounts": [
+    {"account": "demo2", "brand": "lakla", "type": "Image", "time": "08:15", "status": "complete", "screenshot": "screenshots/2026-02-17/demo2-posts.png"},
+    {"account": "demo3", "brand": "taite", "type": "Image", "time": "09:45", "status": "complete", "screenshot": "screenshots/2026-02-17/demo3-posts.png"},
+    {"account": "demo4", "brand": "aigency", "type": "UGC", "time": "08:45", "status": "skipped", "note": "Old content blocked generation"},
+    {"account": "demo7", "brand": "cepas", "type": "Slideshow", "time": "17:15", "status": "complete", "screenshot": "screenshots/2026-02-17/demo7-posts.png", "errorScreenshot": "screenshots/2026-02-17/demo7-error.png", "note": "Slideshow date warning"},
+    {"account": "demo11", "brand": "roundabout", "type": "UGC", "time": "12:45", "status": "complete", "screenshot": "screenshots/2026-02-17/demo11-posts.png"},
+    {"account": "demo13", "brand": "limitless", "type": "AI Video", "time": "17:15", "status": "failed", "errorScreenshot": "screenshots/2026-02-17/demo13-error.png", "note": "UID truncated, Alex manually scheduled"},
+    {"account": "demo15", "brand": "argyle", "type": "Image", "time": "20:15", "status": "skipped", "note": "Stale state, Alex manually handled"},
+    {"account": "demo16", "brand": "dynamic", "type": "Slideshow", "time": "08:30", "status": "complete", "screenshot": "screenshots/2026-02-17/demo16-posts.png", "errorScreenshot": "screenshots/2026-02-17/demo16-error.png"},
+    {"account": "demo17", "brand": "generation learn", "type": "Image", "time": "16:15", "status": "complete", "screenshot": "screenshots/2026-02-17/demo17-posts.png"},
+    {"account": "demo18", "brand": "paperpixel", "type": "AI Video", "time": "10:15", "status": "skipped", "note": "Old content from Feb 10 already scheduled"}
+  ],
+  "issues": [
+    "Stale process blocked 02:00 cron",
+    "\"Already exists\" blocked fresh generation for demo4, demo18",
+    "Stale state blocked demo15 entirely",
+    "AI Video UID truncated for demo13",
+    "Category edit warnings on all accounts"
+  ],
+  "fixes": [
+    "editCategoryField — 4 detection strategies",
+    "\"Already exists\" removed — always generates fresh",
+    "Stale state auto-reset",
+    "UID verification → date-based verification",
+    "pkill in cron script",
+    "Pre-check Posts page for existing scheduled posts",
+    "Full date-based verification for all content types"
+  ],
+  "preview": {
+    "day": "Wednesday",
+    "date": "2026-02-18",
+    "accounts": [
+      {"account": "demo1", "brand": "zafira", "type": "Slideshow", "time": "09:15"},
+      {"account": "demo4", "brand": "aigency", "type": "UGC", "time": "08:45"},
+      {"account": "demo6", "brand": "azura", "type": "UGC", "time": "16:00"},
+      {"account": "demo7", "brand": "cepas", "type": "Image", "time": "17:00"},
+      {"account": "demo8", "brand": "kulbit", "type": "UGC", "time": "18:00"},
+      {"account": "demo9", "brand": "lunara", "type": "Image", "time": "21:00"},
+      {"account": "demo12", "brand": "lesson learn", "type": "Image", "time": "19:00"},
+      {"account": "demo13", "brand": "limitless", "type": "Image", "time": "08:30"},
+      {"account": "demo14", "brand": "eleven acre", "type": "UGC", "time": "10:00"},
+      {"account": "demo17", "brand": "generation learn", "type": "Slideshow", "time": "07:15"}
+    ]
+  },
+  "generatedAt": "2026-02-17T09:30:00+04:00"
+}
