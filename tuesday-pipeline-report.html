@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UGC Pipeline Report — Tuesday, Feb 17, 2026</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0a;color:#e0e0e0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;padding:20px 40px;line-height:1.6}
+h1{font-size:2em;margin-bottom:4px}
+.subtitle{color:#888;font-size:1em;margin-bottom:30px}
+.stats{display:flex;gap:16px;margin-bottom:30px;flex-wrap:wrap}
+.stat{padding:20px 30px;border-radius:12px;text-align:center;min-width:140px}
+.stat .num{font-size:2.4em;font-weight:700}
+.stat .label{font-size:.85em;opacity:.8}
+.stat-total{background:#1a1a2e;color:#fff}
+.stat-success{background:#0a2e0a;color:#4ade80}
+.stat-failed{background:#2e0a0a;color:#f87171}
+.stat-skipped{background:#2e2a0a;color:#facc15}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:30px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.card{background:#141414;border:1px solid #222;border-radius:12px;padding:16px;position:relative}
+.card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.card-title{font-weight:600;font-size:1.05em}
+.badge{padding:3px 10px;border-radius:20px;font-size:.75em;font-weight:600}
+.badge-complete{background:#0a2e0a;color:#4ade80}
+.badge-failed{background:#2e0a0a;color:#f87171}
+.badge-skipped{background:#2e2a0a;color:#facc15}
+.card-detail{color:#999;font-size:.9em;margin-bottom:4px}
+.card-note{color:#f87171;font-size:.85em;font-style:italic}
+.card-note.warn{color:#facc15}
+.thumbs{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.thumb{width:120px;height:80px;object-fit:cover;border-radius:6px;cursor:pointer;border:1px solid #333;transition:border-color .2s}
+.thumb:hover{border-color:#4ade80}
+.section-header{font-size:1.3em;font-weight:600;margin:30px 0 10px;cursor:pointer;user-select:none}
+.section-header::before{content:'▶ ';font-size:.8em}
+.section-header.open::before{content:'▼ '}
+.section-content{display:none;padding:0 0 10px 20px}
+.section-content.open{display:block}
+.section-content li{margin-bottom:6px;color:#ccc}
+.preview-table{width:100%;border-collapse:collapse;margin-top:10px}
+.preview-table th,.preview-table td{padding:8px 12px;text-align:left;border-bottom:1px solid #222}
+.preview-table th{color:#888;font-size:.85em}
+.preview-table td{font-size:.9em}
+footer{text-align:center;color:#555;margin-top:40px;padding:20px;border-top:1px solid #222}
+#lightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.92);z-index:9999;cursor:pointer;justify-content:center;align-items:center}
+#lightbox.active{display:flex}
+#lightbox img{max-width:95vw;max-height:95vh;border-radius:8px;box-shadow:0 0 40px rgba(0,0,0,.5)}
+</style>
+</head>
+<body>
+
+<h1>📊 UGC Pipeline Report — Tuesday, Feb 17, 2026</h1>
+<div class="subtitle">Trigger: Manual at 02:28 Dubai (02:00 cron blocked by stale process)</div>
+
+<div class="stats">
+  <div class="stat stat-total"><div class="num">10</div><div class="label">Total</div></div>
+  <div class="stat stat-success"><div class="num">6</div><div class="label">Success</div></div>
+  <div class="stat stat-failed"><div class="num">1</div><div class="label">Failed</div></div>
+  <div class="stat stat-skipped"><div class="num">3</div><div class="label">Skipped</div></div>
+</div>
+
+<div class="grid">
+
+  <div class="card">
+    <div class="card-header"><span class="card-title">demo2 (lakla)</span><span class="badge badge-complete">✅ COMPLETE</span></div>
+    <div class="card-detail">Image @ 08:15</div>
+    <div class="thumbs"><img class="thumb" src="screenshots/2026-02-17/demo2-posts.png" onclick="openLightbox(this.src)"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-title">demo3 (taite)</span><span class="badge badge-complete">✅ COMPLETE</span></div>
+    <div class="card-detail">Image @ 09:45</div>
+    <div class="thumbs"><img class="thumb" src="screenshots/2026-02-17/demo3-posts.png" onclick="openLightbox(this.src)"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-title">demo4 (aigency)</span><span class="badge badge-skipped">⚠️ SKIPPED</span></div>
+    <div class="card-detail">UGC @ 08:45</div>
+    <div class="card-note warn">Old content blocked generation</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-title">demo7 (cepas)</span><span class="badge badge-complete">✅ COMPLETE</span></div>
+    <div class="card-detail">Slideshow @ 17:15</div>
+    <div class="thumbs">
+      <img class="thumb" src="screenshots/2026-02-17/demo7-posts.png" onclick="openLightbox(this.src)">
+      <img class="thumb" src="screenshots/2026-02-17/demo7-error.png" onclick="openLightbox(this.src)">
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-title">demo11 (roundabout)</span><span class="badge badge-complete">✅ COMPLETE</span></div>
+    <div class="card-detail">UGC @ 12:45</div>
+    <div class="thumbs"><img class="thumb" src="screenshots/2026-02-17/demo11-posts.png" onclick="openLightbox(this.src)"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-title">demo13 (limitless)</span><span class="badge badge-failed">❌ FAILED</span></div>
+    <div class="card-detail">AI Video @ 17:15</div>
+    <div class="card-note">UID truncated, Alex manually scheduled</div>
+    <div class="thumbs"><img class="thumb" src="screenshots/2026-02-17/demo13-error.png" onclick="openLightbox(this.src)"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-title">demo15 (argyle)</span><span class="badge badge-skipped">⚠️ SKIPPED</span></div>
+    <div class="card-detail">Image @ 20:15</div>
+    <div class="card-note warn">Stale state, Alex manually handled</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-title">demo16 (dynamic)</span><span class="badge badge-complete">✅ COMPLETE</span></div>
+    <div class="card-detail">Slideshow @ 08:30</div>
+    <div class="thumbs">
+      <img class="thumb" src="screenshots/2026-02-17/demo16-posts.png" onclick="openLightbox(this.src)">
+      <img class="thumb" src="screenshots/2026-02-17/demo16-error.png" onclick="openLightbox(this.src)">
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-title">demo17 (generation learn)</span><span class="badge badge-complete">✅ COMPLETE</span></div>
+    <div class="card-detail">Image @ 16:15</div>
+    <div class="thumbs"><img class="thumb" src="screenshots/2026-02-17/demo17-posts.png" onclick="openLightbox(this.src)"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-title">demo18 (paperpixel)</span><span class="badge badge-skipped">⚠️ SKIPPED</span></div>
+    <div class="card-detail">AI Video @ 10:15</div>
+    <div class="card-note warn">Old content from Feb 10 already scheduled</div>
+  </div>
+
+</div>
+
+<div class="section-header" onclick="toggleSection(this)">Issues</div>
+<div class="section-content">
+  <ol>
+    <li>Stale process blocked 02:00 cron — had to manually trigger at 02:28</li>
+    <li>"Already exists" blocked fresh generation for demo4, demo18</li>
+    <li>Stale state blocked demo15 entirely</li>
+    <li>AI Video UID truncated for demo13</li>
+    <li>Category edit warnings on all accounts</li>
+  </ol>
+</div>
+
+<div class="section-header" onclick="toggleSection(this)">Fixes Applied</div>
+<div class="section-content">
+  <ol>
+    <li><strong>editCategoryField</strong> — 4 detection strategies for reliable category selection</li>
+    <li><strong>"Already exists" removed</strong> — always generates fresh content</li>
+    <li><strong>Stale state auto-reset</strong> — clears stale flags before each run</li>
+    <li><strong>UID verification → date-based verification</strong> — no more truncated UID issues</li>
+    <li><strong>pkill in cron script</strong> — kills stale processes before starting</li>
+    <li><strong>Pre-check Posts page</strong> for existing scheduled posts</li>
+    <li><strong>Full date-based verification</strong> for all content types</li>
+  </ol>
+</div>
+
+<div class="section-header" onclick="toggleSection(this)">Wednesday Preview (Feb 18)</div>
+<div class="section-content open" style="display:block">
+  <table class="preview-table">
+    <tr><th>Account</th><th>Type</th><th>Time</th></tr>
+    <tr><td>demo1 (zafira)</td><td>Slideshow</td><td>09:15</td></tr>
+    <tr><td>demo4 (aigency)</td><td>UGC</td><td>08:45</td></tr>
+    <tr><td>demo6 (azura)</td><td>UGC</td><td>16:00</td></tr>
+    <tr><td>demo7 (cepas)</td><td>Image</td><td>17:00</td></tr>
+    <tr><td>demo8 (kulbit)</td><td>UGC</td><td>18:00</td></tr>
+    <tr><td>demo9 (lunara)</td><td>Image</td><td>21:00</td></tr>
+    <tr><td>demo12 (lesson learn)</td><td>Image</td><td>19:00</td></tr>
+    <tr><td>demo13 (limitless)</td><td>Image</td><td>08:30</td></tr>
+    <tr><td>demo14 (eleven acre)</td><td>UGC</td><td>10:00</td></tr>
+    <tr><td>demo17 (generation learn)</td><td>Slideshow</td><td>07:15</td></tr>
+  </table>
+</div>
+
+<footer>Generated by Frank • 2026-02-17T05:28:00+04:00</footer>
+
+<div id="lightbox" onclick="closeLightbox()"><img id="lightbox-img" src=""></div>
+
+<script>
+function openLightbox(src){const lb=document.getElementById('lightbox');document.getElementById('lightbox-img').src=src;lb.classList.add('active')}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('active')}
+function toggleSection(el){el.classList.toggle('open');el.nextElementSibling.classList.toggle('open');if(el.nextElementSibling.classList.contains('open')){el.nextElementSibling.style.display='block'}else{el.nextElementSibling.style.display='none'}}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()})
+</script>
+</body>
+</html>
