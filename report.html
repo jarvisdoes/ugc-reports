@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UGC Pipeline Report</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0a; color: #e0e0e0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; padding: 2rem; }
+  a { color: #60a5fa; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  header { text-align: center; margin-bottom: 2rem; border-bottom: 1px solid #222; padding-bottom: 1.5rem; }
+  header h1 { font-size: 1.8rem; color: #fff; margin-bottom: .3rem; }
+  header .trigger { color: #888; font-size: .9rem; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+  .stat { background: #141414; border: 1px solid #222; border-radius: 10px; padding: 1.2rem; text-align: center; }
+  .stat .num { font-size: 2rem; font-weight: 700; }
+  .stat .label { color: #888; font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; }
+  .stat.success .num { color: #4ade80; }
+  .stat.failed .num { color: #f87171; }
+  .stat.skipped .num { color: #facc15; }
+  .stat.total .num { color: #60a5fa; }
+  .accounts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 2rem; }
+  .card { background: #141414; border: 1px solid #222; border-radius: 10px; padding: 1.2rem; }
+  .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: .5rem; }
+  .card-header h3 { font-size: 1rem; color: #fff; }
+  .badge { padding: .2rem .6rem; border-radius: 999px; font-size: .75rem; font-weight: 600; }
+  .badge.complete { background: #16532e; color: #4ade80; }
+  .badge.failed { background: #531616; color: #f87171; }
+  .badge.skipped { background: #533e16; color: #facc15; }
+  .card .meta { color: #888; font-size: .85rem; margin-bottom: .5rem; }
+  .card .note { color: #a3a3a3; font-size: .85rem; font-style: italic; margin-top: .4rem; }
+  .thumbs { display: flex; gap: .5rem; margin-top: .6rem; flex-wrap: wrap; }
+  .thumbs img { width: 120px; height: 70px; object-fit: cover; border-radius: 6px; border: 1px solid #333; cursor: pointer; transition: opacity .2s; }
+  .thumbs img:hover { opacity: .7; }
+  .collapsible { background: #141414; border: 1px solid #222; border-radius: 10px; margin-bottom: 1rem; }
+  .collapsible summary { padding: 1rem 1.2rem; cursor: pointer; font-weight: 600; color: #fff; font-size: 1rem; }
+  .collapsible summary::-webkit-details-marker { color: #555; }
+  .collapsible .content { padding: 0 1.2rem 1rem; }
+  .collapsible ul { list-style: disc; padding-left: 1.2rem; }
+  .collapsible li { margin-bottom: .3rem; color: #ccc; font-size: .9rem; }
+  .preview { background: #141414; border: 1px solid #222; border-radius: 10px; padding: 1.2rem; margin-bottom: 2rem; }
+  .preview h2 { color: #fff; font-size: 1.1rem; margin-bottom: .8rem; }
+  .preview-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .5rem; }
+  .preview-item { display: flex; justify-content: space-between; padding: .4rem .6rem; background: #1a1a1a; border-radius: 6px; font-size: .85rem; }
+  .preview-item .name { color: #e0e0e0; }
+  .preview-item .time { color: #888; }
+  footer { text-align: center; color: #555; font-size: .8rem; padding-top: 1rem; border-top: 1px solid #222; }
+  .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.92); z-index: 1000; justify-content: center; align-items: center; cursor: pointer; }
+  .lightbox.active { display: flex; }
+  .lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 8px; }
+  @media (max-width: 700px) { .accounts, .stats, .preview-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1 id="title">UGC Pipeline Report</h1>
+    <div class="trigger" id="trigger"></div>
+  </header>
+  <div class="stats" id="stats"></div>
+  <div class="accounts" id="accounts"></div>
+  <details class="collapsible" id="issuesSection"><summary>⚠️ Issues</summary><div class="content"><ul id="issues"></ul></div></details>
+  <details class="collapsible" id="fixesSection"><summary>🔧 Fixes Applied</summary><div class="content"><ul id="fixes"></ul></div></details>
+  <div class="preview" id="preview"></div>
+  <footer id="footer"></footer>
+</div>
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('active')"><img id="lbImg"></div>
+<script>
+function openLb(src){const lb=document.getElementById('lightbox');document.getElementById('lbImg').src=src;lb.classList.add('active');}
+const params=new URLSearchParams(location.search);
+const date=params.get('date')||new Date().toISOString().slice(0,10);
+fetch('reports/'+date+'.json').then(r=>{if(!r.ok)throw new Error('Not found');return r.json()}).then(d=>{
+  document.getElementById('title').textContent='UGC Pipeline Report — '+d.day+', '+d.date;
+  document.getElementById('trigger').textContent='Trigger: '+d.trigger;
+  document.getElementById('stats').innerHTML=[
+    {c:'total',n:d.summary.total,l:'Total'},
+    {c:'success',n:d.summary.success,l:'Success'},
+    {c:'failed',n:d.summary.failed,l:'Failed'},
+    {c:'skipped',n:d.summary.skipped,l:'Skipped'}
+  ].map(s=>'<div class="stat '+s.c+'"><div class="num">'+s.n+'</div><div class="label">'+s.l+'</div></div>').join('');
+  document.getElementById('accounts').innerHTML=d.accounts.map(a=>{
+    let imgs='';
+    if(a.screenshot)imgs+='<img src="'+a.screenshot+'" onclick="openLb(this.src)" alt="screenshot">';
+    if(a.errorScreenshot)imgs+='<img src="'+a.errorScreenshot+'" onclick="openLb(this.src)" alt="error" style="border-color:#f87171">';
+    return '<div class="card"><div class="card-header"><h3>'+a.account+' — '+a.brand+'</h3><span class="badge '+a.status+'">'+a.status+'</span></div><div class="meta">'+a.type+' · '+a.time+'</div>'+(imgs?'<div class="thumbs">'+imgs+'</div>':'')+(a.note?'<div class="note">'+a.note+'</div>':'')+'</div>';
+  }).join('');
+  const il=document.getElementById('issues');il.innerHTML=d.issues.map(i=>'<li>'+i+'</li>').join('');
+  const fl=document.getElementById('fixes');fl.innerHTML=d.fixes.map(f=>'<li>'+f+'</li>').join('');
+  if(d.preview){
+    document.getElementById('preview').innerHTML='<h2>📅 Next: '+d.preview.day+', '+d.preview.date+' ('+d.preview.accounts.length+' accounts)</h2><div class="preview-grid">'+d.preview.accounts.map(a=>'<div class="preview-item"><span class="name">'+a.account+' · '+a.brand+' · '+a.type+'</span><span class="time">'+a.time+'</span></div>').join('')+'</div>';
+  }
+  document.getElementById('footer').textContent='Generated: '+d.generatedAt;
+}).catch(e=>{document.getElementById('title').textContent='Report not found for '+date;});
+</script>
+</body>
+</html>
