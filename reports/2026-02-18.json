@@ -1,0 +1,150 @@
+{
+  "date": "2026-02-18",
+  "day": "Wednesday",
+  "trigger": "Manual at 07:07 Dubai (02:00 cron failed \u2014 TCC permission fix applied)",
+  "summary": {
+    "total": 9,
+    "success": 9,
+    "failed": 0,
+    "skipped": 0
+  },
+  "accounts": [
+    {
+      "account": "demo17",
+      "brand": "generation learn",
+      "type": "Slideshow",
+      "time": "07:15",
+      "status": "complete",
+      "screenshot": "screenshots/2026-02-18/demo17.png",
+      "uid": "KVWT"
+    },
+    {
+      "account": "demo13",
+      "brand": "limitless",
+      "type": "Image",
+      "time": "08:30",
+      "status": "complete",
+      "screenshot": "screenshots/2026-02-18/demo13.png"
+    },
+    {
+      "account": "demo4",
+      "brand": "aigency",
+      "type": "UGC",
+      "time": "08:45",
+      "status": "complete",
+      "screenshot": "screenshots/2026-02-18/demo4.png",
+      "uid": "X7VSC"
+    },
+    {
+      "account": "demo1",
+      "brand": "zafira",
+      "type": "Slideshow",
+      "time": "09:15",
+      "status": "complete",
+      "screenshot": "screenshots/2026-02-18/demo1.png",
+      "uid": "AX4S"
+    },
+    {
+      "account": "demo6",
+      "brand": "azura",
+      "type": "UGC",
+      "time": "16:00",
+      "status": "complete",
+      "screenshot": "screenshots/2026-02-18/demo6.png",
+      "uid": "ZGAXC"
+    },
+    {
+      "account": "demo7",
+      "brand": "cepas",
+      "type": "Image",
+      "time": "17:00",
+      "status": "complete",
+      "screenshot": "screenshots/2026-02-18/demo7.png"
+    },
+    {
+      "account": "demo8",
+      "brand": "kulbit",
+      "type": "UGC",
+      "time": "18:00",
+      "status": "complete",
+      "screenshot": "screenshots/2026-02-18/demo8.png",
+      "uid": "PGLJP"
+    },
+    {
+      "account": "demo12",
+      "brand": "lesson learn",
+      "type": "Image",
+      "time": "19:00",
+      "status": "complete"
+    },
+    {
+      "account": "demo9",
+      "brand": "lunara",
+      "type": "Image",
+      "time": "21:00",
+      "status": "complete",
+      "screenshot": "screenshots/2026-02-18/demo9.png"
+    }
+  ],
+  "preview": {
+    "day": "Thursday",
+    "date": "2026-02-19",
+    "accounts": [
+      {
+        "account": "demo7",
+        "brand": "cepas",
+        "type": "Image",
+        "time": "09:00"
+      },
+      {
+        "account": "demo11",
+        "brand": "roundabout",
+        "type": "Slideshow",
+        "time": "12:30"
+      },
+      {
+        "account": "demo14",
+        "brand": "eleven acre",
+        "type": "UGC",
+        "time": "14:00"
+      },
+      {
+        "account": "demo15",
+        "brand": "argyle",
+        "type": "AI Video",
+        "time": "16:30"
+      },
+      {
+        "account": "demo18",
+        "brand": "paperpixel",
+        "type": "UGC",
+        "time": "16:30"
+      },
+      {
+        "account": "demo2",
+        "brand": "lakla",
+        "type": "AI Video",
+        "time": "17:15"
+      },
+      {
+        "account": "demo17",
+        "brand": "generation learn",
+        "type": "Image",
+        "time": "17:15"
+      },
+      {
+        "account": "demo16",
+        "brand": "dynamic",
+        "type": "UGC",
+        "time": "19:30"
+      },
+      {
+        "account": "demo3",
+        "brand": "taite",
+        "type": "Image",
+        "time": "20:00"
+      }
+    ]
+  },
+  "generatedAt": "2026-02-18 08:53 GST"
+}
