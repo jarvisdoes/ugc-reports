@@ -3,9 +3,9 @@
   "day": "Wednesday",
   "trigger": "Manual at 07:07 Dubai (02:00 cron failed \u2014 TCC permission fix applied)",
   "summary": {
-    "total": 9,
+    "total": 10,
     "success": 9,
-    "failed": 0,
+    "failed": 1,
     "skipped": 0
   },
   "accounts": [
@@ -43,6 +43,14 @@
       "status": "complete",
       "screenshot": "screenshots/2026-02-18/demo1.png",
       "uid": "AX4S"
+    },
+    {
+      "account": "demo14",
+      "brand": "eleven acre",
+      "type": "UGC",
+      "time": "10:00",
+      "status": "failed",
+      "note": "Content generated but scheduling failed (Confirm Schedule modal stuck)"
     },
     {
       "account": "demo6",
